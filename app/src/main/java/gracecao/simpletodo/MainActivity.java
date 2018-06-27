@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 //store the updated list
                 writeItems();
                 //logging the item if removed - information log
-                Log.i("MainActivity","Removed item" + position);
+                Log.i("MainActivity", "Removed item" + position);
                 //return true to tell the framework that the long click was consumed
                 return true;
             }
@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
     private File getDataFile() {
         return new File(getFilesDir(), "todo.txt");
     }
+
     //read the items from the file system
     private void readItems() {
         try {
@@ -115,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
             items = new ArrayList<>();
         }
     }
+
     //write the items to the file system
     private void writeItems() {
         try {
@@ -129,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode ==RESULT_OK && requestCode == EDIT_REQUEST_CODE) {
+        if (resultCode == RESULT_OK && requestCode == EDIT_REQUEST_CODE) {
             //extract updated item value from result extras
             String updatedItem = data.getExtras().getString(ITEM_TEXT);
             //get the position of the item which was edited
